@@ -1,12 +1,27 @@
 window.onload = function(){
+    const $ = id => document.getElementById(id)
+
     let body = document.querySelector('body');
     let moviesListTitulo = document.querySelector('.moviesListTitulo');
 
-    let modo = confirm('Desea modo oscuro');
-    if(modo){
+    /*$('logoDH').addEventListener('mouseover', () => {
         body.style.backgroundColor = '#7f7f7f'
         body.classList.add('fondoMoviesList');
-    }
+    })*/
+
+    $('buttonDark').addEventListener('click', function () {
+
+        if(this.textContent === "modo oscuro"){
+            body.style.backgroundColor = '#7f7f7f'
+            body.classList.add('fondoMoviesList');
+            this.textContent = "modo claro"
+        }else {
+            body.style.backgroundColor = '#ffffff'
+            body.classList.remove('fondoMoviesList');    
+            this.textContent = "modo oscuro"
+
+        }
+    })
     
     console.log(body);
     moviesListTitulo.innerHTML = 'LISTADO DE PELÍCULAS';
